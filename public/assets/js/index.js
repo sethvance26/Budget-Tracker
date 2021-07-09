@@ -2,8 +2,13 @@ let transactions = [];
 let myChart;
 
 
-
-fetch("/api/transaction")
+fetch("/api/transaction", {
+  method: "GET",
+  headers: {
+    Accept: "application/json, text/plain, */*",
+    "Content-Type": "application/json"
+  }
+})
   .then(response => {
     return response.json();
   })
