@@ -2,26 +2,45 @@ const CACHE_NAME = "static-cache-v2";
 const DATA_CACHE_NAME = "data-cache-v1";
 
 const FILES_TO_CACHE = [
-    './',
-    './style.css',
-    './assets/js/db.js',
-    './assets/js/index.js',
-    "./manifest.webmanifest",
-    './assets/icons/icon-192x192.jpg',
-    './assets/icons/icon-512x512.jpg',
-    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-    'https://cdn.jsdelivr.net/npm/chart.js@2.8.0'
+    '/',
+    '/index.html',
+    '/assets/css/style.css',
+    '/assets/js/db.js',
+    '/assets/js/index.js',
+    '/service-worker.js',
+    '/manifest.webmanifest',
+    '/assets/icons/icon-192x192.jpg',
+    '/assets/icons/icon-512x512.jpg',
 ];
   
   
-  // install
-  self.addEventListener("install", function(evt) {
-    evt.waitUntil(
-      caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(FILES_TO_CACHE))
-        .then(self.skipWaiting())
-    );
-  });
+self.addEventListener('install', function (evt) {
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Files were succesfully pre-cached!");
+      return cache.addAll(FILES_TO_CACHE);
+    })
+  )
+  self.skipWaiting();
+});
+
+// activate
+self.addEventListener("activate", function (evt) {
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          // IF the data does not match data in the static or dynamic caches, it gets deleted
+          if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
+            console.log("Clearing old cache data", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
 
 
   // fetch
@@ -29,7 +48,7 @@ self.addEventListener("fetch", function(evt) {
   // cache successful requests to the API
   if (evt.request.url.includes("/api/")) {
     evt.respondWith(
-      caches.open(DATA_CACHE_NAME).then(cache => {
+      caches.open(DATA_CACHE_NAME).then((cache) => {
         return fetch(evt.request)
           .then(response => {
             // If the response was good, clone it and store it in the cache.
