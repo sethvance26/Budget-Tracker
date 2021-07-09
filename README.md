@@ -12,7 +12,7 @@ Offline Functionality:
 
 When brought back online:
 
-  * This is to push
+  * This is to push to heroku
 
   * Offline entries should be added to tracker.
 
