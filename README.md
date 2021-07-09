@@ -12,6 +12,8 @@ Offline Functionality:
 
 When brought back online:
 
+  * This is to push
+
   * Offline entries should be added to tracker.
 
 ## User Story
