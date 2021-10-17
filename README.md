@@ -2,8 +2,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   This project is licensed under the MIT license. URL Here - (https://opensource.org/licenses/MIT)
 ## Project Name:
-Budget-Tracker-Offline-Online
-(a Progressive Web Application)
+Budget-Tracker
+
 
 ## Table of Contents
 - [Title](#Project-Name)
@@ -19,9 +19,11 @@ Budget-Tracker-Offline-Online
 Budget Tracker is a progressive web application where users can track their withdrawals and deposits with and without data or an internet connection. Users can have faith that their budgets will maintain accuracy during travel, no matter where they go. Budget Tracker additionally has the functionality to graph a user's total amount of money over time, giving the user a physical representation of their budget. 
 
 ## Contact
-[Email]-(sethvance26@gmail.com)
-[GitHub]-(sethvance26)
-[LinkedIn]-(https://www.linkedin.com/in/seth-vance-b1b28115a/)
+[Email](sethvance26@gmail.com)
+
+[GitHub](sethvance26)
+
+[LinkedIn](https://www.linkedin.com/in/seth-vance-b1b28115a/)
 
 ## Technologies Used
 ```
@@ -41,7 +43,7 @@ HTML & CSS
 
 ## Usage
 Consumers love being able to track their budgets, even while offline! Keep your budget tracked, online or on the go! 
-https://github.com/sethvance26/Budget-Tracker-Offline-Online
+[Budget-Tracker](https://mighty-gorge-65427.herokuapp.com/)
 
 
 ## Installation
@@ -58,4 +60,4 @@ If you have any questions or concerns, please e-mail me at sethvance26@gmail.com
 ### Heroku-Link
 Here is the deployed link to Heroku!
 
-https://mighty-gorge-65427.herokuapp.com/
+[Deployed Application](https://mighty-gorge-65427.herokuapp.com/)
